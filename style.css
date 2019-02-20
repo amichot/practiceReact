@@ -1,0 +1,56 @@
+.histTable {
+  width: 100%;
+  text-align: center;
+  line-height: 20px;
+}
+
+.histTable * {
+  padding: 10px;
+}
+
+header {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 1px solid black;
+  padding: 20px 0;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+a:active {
+  color:grey;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:50%;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\f179";
+  font-family: FontAwesome;
+  color: red;
+  font-size: 20px;
+  margin-right: 5px;
+}

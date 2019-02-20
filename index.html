@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>React Hello World</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://use.fontawesome.com/1c363eed50.js"></script>
+</head>
+
+<body>
+  <div id="application-root"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin>
+  </script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin>
+  </script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin>
+  </script>
+
+  <script type="text/babel">
+
+    const banner = (text) => (<header role="banner"><h1>{text}</h1></header>);
+    const header2 = (text) => (<header><h2>{text}</h2></header>);
+    const anchor = (address, text) => (<a href={address} target={`_blank`}> {text}</a>)
+    const image = (src, alt) => (<img height = "200" src={src} alt={alt}></img>)
+    const li = (text) => (<li>{text}</li>)
+    const trheader = () => (<tr>{tableHeader()}</tr>)
+    const tableHeader = (array) => {
+      return array.map(function(tableHeader) {
+        return (<th>{tableHeader}</th>)
+      })
+    }
+
+    const tableData = (array) => {
+      return array.map(function(data) {
+        return (<td>{data}</td>)
+      })
+    }
+
+
+    
+
+    function employmentHist() {
+  
+        const headers = ["Company Name", "Job Title", "Date of Employment", "Job Description"]
+        const firstJob = ["Walmart", "Manager", "01-01-1999 to 01-01-2009", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."]
+        const secondJob = ["Starbucks", "Region Manager", "01-01-2010 to current", "Cras dapibus. Vivamus elementum semper nisi."]
+
+        return (
+          <section>
+            {header2(`Employment History`)}
+            <table className='histTable'>
+              <tr>
+                {tableHeader(headers)}
+              </tr>
+              <tr>
+                {tableData(firstJob)}
+              </tr>
+              <tr>
+                {tableData(secondJob)}
+              </tr>
+            </table>
+
+          </section>
+        )     
+    }
+
+    function education() {
+      return (
+        <section>
+          {header2(`Education`)}
+          <ul>{li(`Lakeview Highschool`)}{li(`University of Cambridge`)}</ul>
+        </section>
+      )
+    }    
+
+    function address() {
+      const email = "fakeSally@yahoo.com";
+      const emailHref = "mailto:fakesally@yahoo.com";
+      const phone = "+211-222-2333";
+      const phoneHref = "tel:+211-222-2333";
+      const imageSrc = "https://ia.media-imdb.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_UX214_CR0,0,214,317_AL_.jpg";
+      const imageAlt = "My Profile Picture";
+
+          return (
+            <section>
+              {header2(`Contact Info`)}
+              {anchor(emailHref, email)}
+              <br/>
+              {anchor(phoneHref, phone)}
+              <br/>
+					    {image(imageSrc, imageAlt)}
+            </section>
+          )
+        
+        }
+
+   class App extends React.Component {
+     render() {
+      return (
+      <main role="main">
+        {banner("Sally Student")}
+        {address()}
+        {education()}
+        {employmentHist()}
+      </main>
+      );
+    }
+  }
+
+// Nested elements inside the App!
+ReactDOM.render(
+  <App></App>,
+  document.querySelector('#application-root')
+);
+  </script>
+</body>
+
+</html>
